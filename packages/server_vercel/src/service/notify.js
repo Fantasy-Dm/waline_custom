@@ -241,7 +241,14 @@ module.exports = class extends think.Service {
       method: 'POST',
       header: {"Content-Type": "application/json"},
       body: JSON.stringify({ msg: this.ctx.locale(contentQQ, data), qq: QQ_ID}),
-    }).then((resp) => resp.json());
+    }).then(resp => {
+        return resp.json();
+    }).then(data => {
+        console.log("notify => qq --- response:" + data);
+    })
+    .catch(error => {
+        console.error("notify => qq --- error:" + error);
+    });
   }
 
   async telegram(self, parent) {
