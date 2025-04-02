@@ -240,7 +240,7 @@ module.exports = class extends think.Service {
     return fetch(`${qmsgHost}/jsend/${QMSG_KEY}`, {
       method: 'POST',
       header: {"Content-Type": "application/json"},
-      body: JSON.stringify({ msg: this.ctx.locale(contentQQ, data), qq, QQ_ID}),
+      body: JSON.stringify({ msg: this.ctx.locale(contentQQ, data), qq: QQ_ID}),
     }).then((resp) => resp.json());
   }
 
