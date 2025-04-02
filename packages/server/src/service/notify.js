@@ -233,19 +233,14 @@ module.exports = class extends think.Service {
 {{self.comment}}
 仅供预览评论，请前往上述页面查看完整內容。`;
 
-    const form = new FormData();
-
-    form.append('msg', this.ctx.locale(contentQQ, data));
-    form.append('qq', QQ_ID);
-
     const qmsgHost = QMSG_HOST
       ? QMSG_HOST.replace(/\/$/, '')
       : 'https://qmsg.zendee.cn';
 
-    return fetch(`${qmsgHost}/send/${QMSG_KEY}`, {
+    return fetch(`${qmsgHost}/jsend/${QMSG_KEY}`, {
       method: 'POST',
-      header: form.getHeaders(),
-      body: form,
+      header: {"Content-Type": "application/json"},
+      body: JSON.stringify({ msg: this.ctx.locale(contentQQ, data), qq, QQ_ID}),
     }).then((resp) => resp.json());
   }
 
