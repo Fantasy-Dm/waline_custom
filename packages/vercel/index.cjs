@@ -1,4 +1,4 @@
-const Application = require('server/index.js');
+const Application = require('./server/index.js');
 
 module.exports = Application({
   plugins: [],
