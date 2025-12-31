@@ -530,7 +530,7 @@ module.exports = class extends think.Service {
           think.isEmpty,
         )
       ) {
-        mailList.push({ to: AUTHOR, title, content });
+        //mailList.push({ to: AUTHOR, title, content });
       }
     }
 
@@ -544,7 +544,8 @@ module.exports = class extends think.Service {
       !fakeMail.test(parent.mail) &&
       !isCommentSelf &&
       !isReplyAuthor &&
-      comment.status !== 'waiting'
+      comment.status !== 'waiting' &&
+      parent.mail !== AUTHOR
     ) {
       mailList.push({
         to: parent.mail,
