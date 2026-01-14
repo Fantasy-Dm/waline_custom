@@ -25,6 +25,7 @@ export default function () {
       return;
     }
 
+    return;
     fetch('https://registry.npmjs.org/@waline/vercel/latest')
       .then((resp) => resp.json())
       .then((resp) => {
