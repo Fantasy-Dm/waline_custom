@@ -24,16 +24,8 @@ export default function () {
     if (!user?.email || !user?.__version) {
       return;
     }
-
-    return;
-    fetch('https://registry.npmjs.org/@waline/vercel/latest')
-      .then((resp) => resp.json())
-      .then((resp) => {
-        if (user.__version === resp.version) {
-          return;
-        }
-        setLatestVersion(resp.version);
-      });
+    
+    setLatestVersion(user.__version);
   }, [user?.email]);
 
   const updateLanguage = function (e) {
