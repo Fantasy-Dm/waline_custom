@@ -97,16 +97,18 @@ module.exports = class extends think.Service {
     title = this.ctx.locale(title, data);
     content = this.ctx.locale(contentWechat, data);
 
-    const form = new FormData();
-
-    form.append('text', title);
-    form.append('desp', content);
-
     return fetch(`https://sctapi.ftqq.com/${SC_KEY}.send`, {
-      method: 'POST',
-      headers: form.getHeaders(),
-      body: form,
-    }).then((resp) => resp.json());
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ desp: content, title: title }),
+    }).then(resp => {
+        return resp.json();
+    }).then(data => {
+        console.log("notify => wechat --- response:" + data);
+    })
+    .catch(error => {
+        console.error("notify => wechat --- error:" + error);
+    });
   }
 
   async qywxAmWechat({ title, content }, self, parent) {
