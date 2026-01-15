@@ -35,3 +35,4 @@ dist/
 
 # npm config file
 .npmrc
+.vs

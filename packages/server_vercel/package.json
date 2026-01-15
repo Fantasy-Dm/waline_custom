@@ -1,7 +1,10 @@
 {
-  "name": "template",
+  "name": "@waline/vercel",
   "version": "1.32.3",
   "private": true,
+  "scripts": {
+    "dev": "node development.js 9090"
+  },
   "dependencies": {
     "@cloudbase/node-sdk": "^3.7.0",
     "@koa/cors": "^5.0.0",

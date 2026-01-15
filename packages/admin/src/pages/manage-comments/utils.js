@@ -31,3 +31,22 @@ export function formatDate(time) {
 
   return localDate + ' ' + localTime;
 }
+//<img class="wl-emoji" src="/plugins/waline/fluentui-emoji/smirking_face_flat.svg" alt="smirking_face_flat">
+export function fixCommentEmojiShow(comment) {
+    if (comment) {
+        comment = comment.replace(
+            /<img\s+[^>]*src=["']([^"']*\/plugins\/waline\/fluentui-emoji\/[^"']*)["'][^>]*>/gi,
+            (match, src) => {
+                if (!src.startsWith('http')) {
+                    const fullUrl = src.startsWith('/')
+                        ? `https://fantasydm.top${src}`
+                        : `https://fantasydm.top/${src}`;
+                    return match.replace(src, fullUrl);
+                }
+                return match;
+            }
+        );
+    }
+
+    return comment;
+}

@@ -6,7 +6,7 @@
     "admin:build": "pnpm --dir=packages/admin build",
     "admin:dev": "pnpm --dir=packages/admin dev",
     "api:build": "pnpm --dir=packages/api build",
-    "apidoc": "apidoc -i packages/server/src/logic -o docs/src/.vuepress/dist/api",
+    "apidoc": "apidoc -i packages/server_vercel/src/logic -o docs/src/.vuepress/dist/api",
     "build": "pnpm admin:build && pnpm api:build && pnpm client:build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "clean": "pnpm -r clean",
@@ -22,7 +22,7 @@
     "packages:check-update": "pnpm dlx npm-check-updates --deep",
     "packages:update": "pnpm dlx npm-check-updates --deep -u && pnpm i && pnpm -r up",
     "prepare": "husky",
-    "server:dev": "pnpm --dir=packages/server dev",
+    "server:dev": "pnpm --dir=packages/server_vercel dev",
     "server:vercel": "vercel dev ./example --listen 9090",
     "test": "vitest"
   },
@@ -89,5 +89,11 @@
   },
   "apidoc": {
     "title": "Waline API Documentation"
+  },
+  "dependencies": {
+    "@waline/admin": "file:packages/admin",
+    "@waline/api": "file:packages/api",
+    "@waline/client": "file:packages/client",
+    "@waline/vercel": "file:packages/server_vercel"
   }
 }

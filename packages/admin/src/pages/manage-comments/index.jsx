@@ -3,7 +3,7 @@ import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { buildAvatar, formatDate, getPostUrl } from './utils.js';
+import { buildAvatar, formatDate, getPostUrl, fixCommentEmojiShow } from './utils.js';
 import Header from '../../components/Header.jsx';
 import Paginator from '../../components/Paginator.jsx';
 import {
@@ -602,7 +602,7 @@ export default function () {
                                 </div>
                                 <div
                                   className="comment-content"
-                                  dangerouslySetInnerHTML={{ __html: comment }}
+                                  dangerouslySetInnerHTML={{ __html: fixCommentEmojiShow(comment) }}
                                 ></div>
                                 {cmtHandler.id === objectId &&
                                 cmtHandler.action === 'reply' ? (

@@ -1,5 +1,6 @@
 const cors = require('@koa/cors');
 const routerREST = require('think-router-rest');
+const path = require('path');
 
 const { isNetlify, netlifyFunctionPrefix } = require('./netlify.js');
 
@@ -75,4 +76,11 @@ module.exports = [
     handle: 'plugin',
   },
   'controller',
+  {
+    handle: 'resource',
+    enable: true,
+    options: {
+      root: path.join(think.ROOT_PATH, 'static'),
+    }
+  },
 ];
