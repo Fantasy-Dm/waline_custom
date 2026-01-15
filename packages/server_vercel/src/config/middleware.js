@@ -78,7 +78,7 @@ module.exports = [
   'controller',
   {
     handle: 'resource',
-    enable: true,
+    enable: isDev,
     options: {
       root: path.join(think.ROOT_PATH, 'static'),
     }
