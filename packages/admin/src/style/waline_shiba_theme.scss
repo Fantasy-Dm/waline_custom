@@ -1,0 +1,827 @@
+/**
+ * Waline Admin - Shiba Inu Theme Style Integration
+ * 
+ * Inspired by Obsidian Shiba Inu theme's design philosophy:
+ * "A calm, warm, and comfortable workspace with a Japanese touch"
+ * 
+ * Design principles:
+ * - Soft, warm colors that stimulate creativity
+ * - Rounded corners and gentle shadows (Japanese aesthetics)
+ * - Clean, minimal interface with breathing space
+ * - Subtle animations for a serene experience
+ * 
+ * Note: Maintains Waline's original background - focuses on style harmony
+ */
+
+// ============================================
+// Color Variables - Warm & Comfortable Palette
+// ============================================
+
+// Accent colors - Inspired by Japanese nature
+$shiba-accent-primary: #e88c7d; // Warm coral (like shiba fur)
+$shiba-accent-secondary: #89b4a9; // Soft sage green
+$shiba-accent-tertiary: #d4a574; // Golden brown
+$shiba-accent-info: #7ba7c6; // Calm blue
+$shiba-accent-success: #a8c798; // Fresh green
+$shiba-accent-warning: #f0c08a; // Warm amber
+$shiba-accent-danger: #d98f8f; // Gentle red
+
+// Neutral colors - Soft and comfortable
+$shiba-neutral-50: #faf9f7; // Warm white
+$shiba-neutral-100: #f5f3f0; // Light cream
+$shiba-neutral-200: #e8e5e1; // Soft gray
+$shiba-neutral-300: #d3cfc9; // Medium gray
+$shiba-neutral-400: #a8a39b; // Muted gray
+$shiba-neutral-500: #8a8379; // Text gray
+$shiba-neutral-600: #6b6660; // Dark gray
+$shiba-neutral-700: #4a453f; // Darker gray
+
+// Semantic colors with warmth
+$shiba-text-primary: #4a453f;
+$shiba-text-secondary: #6b6660;
+$shiba-text-muted: #a8a39b;
+$shiba-border-light: #e8e5e1;
+$shiba-border-medium: #d3cfc9;
+$shiba-shadow-soft: rgba(74, 69, 63, 0.08);
+$shiba-shadow-medium: rgba(74, 69, 63, 0.12);
+
+// ============================================
+// Typography - Japanese Elegance
+// ============================================
+
+body {
+    color: $shiba-text-primary;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $shiba-text-primary;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+a {
+    color: $shiba-accent-primary;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        color: darken($shiba-accent-primary, 10%);
+        text-decoration: none;
+    }
+}
+
+// ============================================
+// Rounded Corners - Soft Japanese Aesthetic
+// ============================================
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-xl: 18px;
+$radius-pill: 50px;
+
+// ============================================
+// Navigation - Clean & Minimal
+// ============================================
+
+.typecho-head-nav {
+    background: $shiba-neutral-50;
+    border-bottom: 1px solid $shiba-border-light;
+    box-shadow: 0 1px 3px $shiba-shadow-soft;
+
+    .operate {
+        .language-select, a {
+            border: none;
+            color: $shiba-text-secondary;
+        }
+
+        a {
+            border: none;
+            color: $shiba-text-secondary;
+        }
+    }
+
+    a {
+        color: $shiba-text-secondary;
+        transition: all 0.2s ease;
+        border-radius: $radius-sm;
+
+        &:hover {
+            color: $shiba-accent-primary;
+            background: rgba(232, 140, 125, 0.08);
+        }
+    }
+}
+
+#typecho-nav-list {
+    .parent a {
+        border-right: none;
+        color: $shiba-text-secondary;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.08);
+            color: $shiba-accent-primary;
+        }
+    }
+
+    .focus .parent a {
+        color: $shiba-accent-primary;
+        background: rgba(232, 140, 125, 0.12);
+        font-weight: 600;
+    }
+
+    .child {
+        background: #fff;
+        border: 1px solid $shiba-border-light;
+        border-radius: $radius-md;
+        box-shadow: 0 4px 16px rgba(74, 69, 63, 0.1), 0 2px 4px rgba(74, 69, 63, 0.06);
+        overflow: hidden;
+
+        li a {
+            transition: all 0.2s ease;
+            color: $shiba-text-secondary;
+
+            &:hover {
+                background: rgba(232, 140, 125, 0.06);
+                color: $shiba-accent-primary;
+            }
+        }
+
+        li.focus a {
+            color: $shiba-accent-primary;
+            background: rgba(232, 140, 125, 0.1);
+            font-weight: 500;
+        }
+    }
+
+    ul:first-child {
+        border-left: none;
+    }
+}
+
+// ============================================
+// Form Elements - Warm & Inviting
+// ============================================
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+textarea,
+select {
+    background: #fff;
+    border: 1.5px solid $shiba-border-medium;
+    color: $shiba-text-primary;
+    border-radius: $radius-md;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: lighten($shiba-accent-primary, 20%);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $shiba-accent-primary;
+        box-shadow: 0 0 0 3px rgba(232, 140, 125, 0.12);
+        background: #fff;
+    }
+
+    &::placeholder {
+        color: $shiba-text-muted;
+    }
+}
+
+textarea {
+    line-height: 1.65;
+}
+
+// ============================================
+// Buttons - Soft & Rounded
+// ============================================
+
+.btn,
+button,
+#ui-datepicker-div .ui-datepicker-current,
+#ui-datepicker-div .ui-datepicker-close {
+    background: $shiba-neutral-100;
+    color: $shiba-text-primary;
+    border: 1.5px solid $shiba-border-medium;
+    border-radius: $radius-md;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+
+    &:hover:not(:disabled) {
+        background: $shiba-neutral-200;
+        border-color: $shiba-accent-primary;
+        color: $shiba-accent-primary;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(232, 140, 125, 0.15);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 1px 3px rgba(232, 140, 125, 0.2);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// Primary button - Shiba warm coral
+.primary {
+    background: linear-gradient(135deg, $shiba-accent-primary 0%, lighten($shiba-accent-primary, 5%) 100%);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(232, 140, 125, 0.2);
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(135deg, darken($shiba-accent-primary, 5%) 0%, $shiba-accent-primary 100%);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(232, 140, 125, 0.3);
+    }
+}
+
+// Warning button
+.btn-warn {
+    background: $shiba-accent-danger;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(217, 143, 143, 0.2);
+
+    &:hover:not(:disabled) {
+        background: darken($shiba-accent-danger, 5%);
+        box-shadow: 0 4px 12px rgba(217, 143, 143, 0.3);
+    }
+}
+
+// ============================================
+// Tables - Clean Zen Style
+// ============================================
+
+.typecho-table-wrap {
+    background: #fff;
+    border-radius: $radius-lg;
+    border: 1px solid $shiba-border-light;
+    box-shadow: 0 2px 8px $shiba-shadow-soft;
+    overflow: hidden;
+}
+
+.typecho-list-table {
+    th {
+        background: $shiba-neutral-50;
+        color: $shiba-text-secondary;
+        border-bottom: 2px solid $shiba-border-light;
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 12px 10px;
+    }
+
+    td {
+        border-top: 1px solid $shiba-border-light;
+        color: $shiba-text-primary;
+        padding: 14px 10px;
+    }
+
+    tbody tr {
+        transition: all 0.2s ease;
+
+        &:hover td {
+            background: rgba(232, 140, 125, 0.04);
+        }
+
+        &.checked td {
+            background: rgba(232, 140, 125, 0.08);
+            border-left: 3px solid $shiba-accent-primary;
+        }
+    }
+
+    .status {
+        color: $shiba-text-muted;
+        background: $shiba-neutral-100;
+        padding: 3px 10px;
+        border-radius: $radius-pill;
+        font-size: 0.75rem;
+    }
+}
+
+// ============================================
+// Message Boxes - Gentle Notifications
+// ============================================
+
+.message {
+    border-radius: $radius-md;
+    border-width: 1px;
+    border-style: solid;
+    padding: 12px 16px;
+
+    a {
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+
+.success {
+    background: lighten($shiba-accent-success, 35%);
+    border-color: lighten($shiba-accent-success, 15%);
+    color: darken($shiba-accent-success, 30%);
+}
+
+.error {
+    background: lighten($shiba-accent-danger, 30%);
+    border-color: lighten($shiba-accent-danger, 10%);
+    color: darken($shiba-accent-danger, 25%);
+}
+
+.notice {
+    background: lighten($shiba-accent-warning, 30%);
+    border-color: lighten($shiba-accent-warning, 10%);
+    color: darken($shiba-accent-warning, 30%);
+}
+
+// ============================================
+// Cards & Panels - Breathing Space
+// ============================================
+
+/*.typecho-option,
+#custom-field,
+.typecho-post-option {
+    background: #fff;
+    border: 1px solid $shiba-border-light;
+    border-radius: $radius-lg;
+    padding: 20px;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px $shiba-shadow-soft;
+
+    &:hover {
+        border-color: $shiba-border-medium;
+        box-shadow: 0 3px 12px $shiba-shadow-medium;
+    }
+}*/
+
+#custom-field {
+    .typecho-label a {
+        color: $shiba-text-primary;
+        border-radius: $radius-sm;
+        padding: 4px 8px;
+        margin: -4px -8px;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.06);
+            color: $shiba-accent-primary;
+        }
+    }
+
+    table {
+        border-radius: $radius-md;
+        overflow: hidden;
+    }
+
+    td {
+        border-bottom-color: $shiba-border-light;
+    }
+}
+
+// ============================================
+// Editor - Calm Writing Environment
+// ============================================
+
+#text,
+.typecho-post-area textarea {
+    background: #fff;
+    color: $shiba-text-primary;
+    border: 1.5px solid $shiba-border-medium;
+    border-radius: $radius-lg;
+    line-height: 1.75;
+
+    &:focus {
+        background: #fff;
+        border-color: $shiba-accent-primary;
+        box-shadow: 0 0 0 4px rgba(232, 140, 125, 0.08);
+    }
+}
+
+.typecho-post-area .title {
+    font-weight: 600;
+    border-radius: $radius-md;
+}
+
+// Editor toolbar - Soft & minimal
+.wmd-button-row {
+    background: $shiba-neutral-50;
+    border-radius: $radius-md $radius-md 0 0;
+    padding: 8px;
+    border-bottom: 1px solid $shiba-border-light;
+
+    li {
+        border-radius: $radius-sm;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.1);
+        }
+
+        &.wmd-spacer {
+            background: $shiba-border-medium;
+            margin: 0 8px;
+        }
+    }
+}
+
+// Preview area
+#wmd-preview {
+    background: #fff;
+    border: 1px solid $shiba-border-light;
+    border-radius: $radius-lg;
+    color: $shiba-text-primary;
+    line-height: 1.75;
+
+    code {
+        background: $shiba-neutral-100;
+        color: $shiba-accent-primary;
+        border-radius: $radius-sm;
+        padding: 3px 6px;
+    }
+
+    pre {
+        background: $shiba-neutral-50;
+        border: 1px solid $shiba-border-light;
+        border-radius: $radius-md;
+        padding: 16px;
+
+        code {
+            background: transparent;
+            color: $shiba-text-primary;
+            padding: 0;
+        }
+    }
+
+    blockquote {
+        border-left: 4px solid $shiba-accent-primary;
+        background: rgba(232, 140, 125, 0.04);
+        border-radius: 0 $radius-md $radius-md 0;
+        color: $shiba-text-secondary;
+        padding: 12px 20px;
+    }
+
+    hr {
+        border-color: $shiba-border-light;
+        border-width: 2px 0 0 0;
+    }
+}
+
+// ============================================
+// Pagination - Minimal Dots
+// ============================================
+
+.typecho-pager {
+    a {
+        background: $shiba-neutral-100;
+        color: $shiba-text-primary;
+        border: 1px solid $shiba-border-medium;
+        border-radius: $radius-sm;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.1);
+            border-color: $shiba-accent-primary;
+            color: $shiba-accent-primary;
+            transform: translateY(-1px);
+        }
+    }
+
+    li.current a {
+        background: $shiba-accent-primary;
+        color: #fff;
+        border-color: $shiba-accent-primary;
+        font-weight: 600;
+    }
+}
+
+// ============================================
+// Dropdown - Floating Menu
+// ============================================
+
+.dropdown-menu {
+    background: #fff;
+    border: 1px solid $shiba-border-light;
+    border-radius: $radius-md;
+    box-shadow: 0 8px 24px rgba(74, 69, 63, 0.12), 0 2px 6px rgba(74, 69, 63, 0.08);
+    padding: 6px;
+
+    li {
+        border-radius: $radius-sm;
+        overflow: hidden;
+    }
+
+    a {
+        color: $shiba-text-primary;
+        transition: all 0.15s ease;
+        border-radius: $radius-sm;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.08);
+            color: $shiba-accent-primary;
+        }
+    }
+}
+
+// ============================================
+// Tags - Soft Pills
+// ============================================
+
+.tag-list li,
+.balloon,
+a.balloon-button {
+    background: $shiba-neutral-100;
+    color: $shiba-text-primary;
+    border-radius: $radius-pill;
+    border: 1px solid $shiba-border-medium;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba(232, 140, 125, 0.1);
+        border-color: $shiba-accent-primary;
+        color: $shiba-accent-primary;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px $shiba-shadow-medium;
+    }
+
+    &.checked {
+        background: rgba(232, 140, 125, 0.15);
+        border-color: $shiba-accent-primary;
+        color: $shiba-accent-primary;
+        font-weight: 500;
+    }
+}
+
+// ============================================
+// Comments - Conversation Style
+// ============================================
+
+.comment-reply-content {
+    background: $shiba-neutral-50;
+    border: 1px solid $shiba-border-light;
+    border-radius: $radius-md;
+
+    &:after {
+        border-color: $shiba-neutral-50 $shiba-neutral-50 transparent transparent;
+    }
+}
+
+.comment-meta span,
+.comment-date {
+    color: $shiba-text-muted;
+}
+
+.comment-action a {
+    color: $shiba-accent-primary;
+
+    &:hover {
+        color: darken($shiba-accent-primary, 10%);
+    }
+}
+
+// ============================================
+// Upload Panel - Drag Zone
+// ============================================
+
+#upload-panel {
+    background: $shiba-neutral-50;
+    border: 2px dashed $shiba-border-medium;
+    border-radius: $radius-lg;
+    transition: all 0.3s ease;
+
+    &.drag {
+        background: rgba(232, 140, 125, 0.06);
+        border-color: $shiba-accent-primary;
+        box-shadow: 0 0 0 4px rgba(232, 140, 125, 0.08);
+    }
+}
+
+#file-list {
+    li {
+        border-top-color: $shiba-border-light;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.04);
+        }
+    }
+}
+
+// ============================================
+// Page Title - Elegant Header
+// ============================================
+
+.typecho-page-title h2 {
+    color: $shiba-text-primary;
+
+    a {
+        background: $shiba-neutral-100;
+        border: 1px solid $shiba-border-medium;
+        border-radius: $radius-md;
+        padding: 6px 14px;
+        font-weight: 500;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.1);
+            border-color: $shiba-accent-primary;
+            color: $shiba-accent-primary;
+        }
+    }
+}
+
+// ============================================
+// Option Tabs - Clean Navigation
+// ============================================
+
+.typecho-option-tabs {
+    a {
+        border-color: $shiba-border-medium;
+        background: $shiba-neutral-100;
+        color: $shiba-text-secondary;
+        border-radius: 0;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(232, 140, 125, 0.08);
+            color: $shiba-accent-primary;
+        }
+    }
+
+    li {
+        &:first-child a {
+            border-radius: $radius-md 0 0 $radius-md;
+        }
+
+        &:last-child a {
+            border-radius: 0 $radius-md $radius-md 0;
+        }
+    }
+
+        li.current a,
+        li.active a {
+            background: $shiba-accent-primary;
+            color: #fff;
+            border-color: $shiba-accent-primary;
+            font-weight: 500;
+        }
+}
+
+// ============================================
+// Footer - Subtle & Calm
+// ============================================
+
+.typecho-foot {
+    color: $shiba-text-muted;
+    border-top: 1px solid $shiba-border-light;
+
+    a {
+        color: $shiba-text-secondary;
+
+        &:hover {
+            color: $shiba-accent-primary;
+        }
+    }
+}
+
+// ============================================
+// Scrollbar - Minimal Design
+// ============================================
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $shiba-neutral-300;
+    border-radius: $radius-sm;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+
+    &:hover {
+        background: $shiba-neutral-400;
+        background-clip: padding-box;
+    }
+}
+
+// ============================================
+// Welcome Board - Warm Greeting
+// ============================================
+
+#typecho-welcome {
+    background: linear-gradient(135deg, rgba(232, 140, 125, 0.06) 0%, rgba(137, 180, 169, 0.06) 100%);
+    border: 1px solid $shiba-border-light;
+    border-radius: $radius-lg;
+    box-shadow: 0 2px 8px $shiba-shadow-soft;
+}
+
+.welcome-board em {
+    color: $shiba-accent-primary;
+}
+
+// ============================================
+// Special Effects - Serene Touches
+// ============================================
+
+// Smooth focus ring
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid $shiba-accent-primary;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+}
+
+// Gentle global transitions
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Loading state
+.loading {
+    background: linear-gradient( 90deg, $shiba-neutral-100 0%, $shiba-neutral-200 50%, $shiba-neutral-100 100% );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease infinite;
+    border-radius: $radius-sm;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+// Fade in animation
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.typecho-page-main {
+    animation: fadeIn 0.3s ease;
+}
+
+// ============================================
+// Responsive Adjustments
+// ============================================
+
+@media (max-width: 768px) {
+    .typecho-table-wrap,
+    .typecho-option,
+    #custom-field {
+        border-radius: $radius-md;
+    }
+
+    .btn,
+    button {
+        border-radius: $radius-sm;
+    }
+}
+
+// ============================================
+// Accessibility - WCAG Compliance
+// ============================================
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+    .btn,
+    button,
+    input,
+    textarea,
+    select {
+        border-width: 2px;
+    }
+}

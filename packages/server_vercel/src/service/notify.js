@@ -97,7 +97,7 @@ module.exports = class extends think.Service {
     title = this.ctx.locale(title, data);
     content = this.ctx.locale(contentWechat, data);
 
-      console.log("notify => wechat --- start:" + JSON.stringify(data));
+    console.log("notify => wechat --- start:" + JSON.stringify(data));
     return fetch(`https://sctapi.ftqq.com/${SC_KEY}.send`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },

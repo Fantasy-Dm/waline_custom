@@ -76,4 +76,11 @@ module.exports = [
     handle: 'plugin',
   },
   'controller',
+  {
+    handle: 'resource',
+    enable: isDev,
+    options: {
+      root: path.join(think.ROOT_PATH, '../admin/dist'),
+    }
+  },
 ];
